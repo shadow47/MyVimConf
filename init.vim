@@ -21,6 +21,7 @@ set wildmenu
 set lazyredraw
 set showmatch
 
+inoremap jj <ESC>
 
 call plug#begin()
 Plug 'scrooloose/nerdtree'  
@@ -35,7 +36,6 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'bkad/CamelCaseMotion'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
-
 
 call plug#end()
 
@@ -104,4 +104,4 @@ let mapleader = ","
 call camelcasemotion#CreateMotionMappings('<leader>')
 
 nnoremap <leader><space> :nohlsearch<CR>
-nnoremap <leader>a :Ag
+nnoremap <leader>a :Ag<space>
