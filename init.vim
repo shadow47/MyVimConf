@@ -1,5 +1,3 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
 set t_Co=256
 set number
 set laststatus=2
@@ -36,8 +34,11 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'bkad/CamelCaseMotion'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
+
+let g:jsx_ext_required = 0
 
 " NERDTREE CONFIG START ********************************************************************************************
 autocmd StdinReadPre * let s:std_in=1
@@ -46,7 +47,6 @@ map <C-n> :NERDTreeToggle<CR>
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '~'
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 " NERDTREE CONFIG END **********************************************************************************************
 
@@ -61,6 +61,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_java_checker = ['java']
 " SYNTASTIC CONFIG END *********************************************************************************************
 
 " CTRLP CONFIG START ***********************************************************************************************
@@ -105,3 +106,22 @@ call camelcasemotion#CreateMotionMappings('<leader>')
 
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>a :Ag<space>
+let g:nerdtree_tabs_autofind=1
+let NERDTreeMapOpenInTab='<leader>t'
+
+
+" Allow us to use Ctrl-s and Ctrl-q as keybinds
+silent !stty -ixon
+
+" Restore default behaviour when leaving Vim.
+autocmd VimLeave * silent !stty ixon
+
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+
+set relativenumber
+command Q q
+vno v <esc>
+
+map <leader>n <plug>NERDTreeTabsToggle<CR>
