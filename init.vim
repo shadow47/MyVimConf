@@ -1,23 +1,25 @@
 set t_Co=256
 set number
 set laststatus=2
-set foldmethod=syntax
+" set foldmethod=syntax
 set mouse=a
 set history=1000
+filetype plugin indent on
 set ignorecase 
 set smartcase  
 set incsearch  
 set hlsearch
 syntax enable
 set tabstop=4
-set softtabstop=4
+set shiftwidth=4
 set expandtab
 set showcmd 
 set cursorline
-filetype indent on
 set wildmenu
 set lazyredraw
 set showmatch
+set nocompatible
+set backspace=indent,eol,start
 
 inoremap jj <ESC>
 
@@ -98,7 +100,7 @@ let g:airline_theme='wombat'
 
 " AIRLINE CONFIG END
 
-colorscheme apprentice
+colorscheme Tomorrow 
 
 
 let mapleader = ","
